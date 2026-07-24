@@ -8,6 +8,8 @@ st.set_page_config(layout="wide")
 st.title("My Trading Chart")
 data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
 data = data.reset_index()
+st.write(data.columns)
+st.write(data.head())
 candles = []
 
 for _, row in data.iterrows():
