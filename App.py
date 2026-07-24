@@ -11,6 +11,16 @@ tf = st.radio(
     ["1m", "5m", "15m", "30m", "1h", "1d"],
     horizontal=True
 )
+interval_map = {
+    "1m": "1m",
+    "5m": "5m",
+    "15m": "15m",
+    "30m": "30m",
+    "1h": "60m",
+    "1d": "1d"
+}
+
+interval = interval_map[tf]
 data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
 data = data.reset_index()
 data.columns = data.columns.get_level_values(0)
