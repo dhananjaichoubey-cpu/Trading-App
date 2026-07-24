@@ -13,7 +13,7 @@ candles = []
 
 for _, row in data.iterrows():
     candles.append({
-    "time": row["Datetime"].strftime("%Y-%m-%d %H:%M:%S"),
+    "time": int(row["Datetime"].timestamp()),
     "open": float(row["Open"]),
     "high": float(row["High"]),
     "low": float(row["Low"]),
