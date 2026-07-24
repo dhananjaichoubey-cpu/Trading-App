@@ -10,7 +10,7 @@ data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
 data = data.reset_index()
 candles = []
 
-for i in data.index:
+for _, row in data.iterrows():
     candles.append({
         "time": i.strftime("%Y-%m-%d %H:%M:%S"),
         "open": float(data.loc[i]["Open"]),
