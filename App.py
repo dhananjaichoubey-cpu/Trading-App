@@ -1,20 +1,21 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # Page Configuration for Mobile
 st.set_page_config(page_title="Pro Trading Terminal", layout="wide")
 
-# Custom CSS for dark theme look
+# Custom CSS for proper mobile full width and clean look
 st.markdown("""
     <style>
     .main { background-color: #0e1117; }
-    h1 { color: #ffffff; text-align: center; font-size: 22px; }
+    h1 { color: #ffffff; text-align: center; font-size: 20px; }
     </style>
-""", unsafe_allow_html=True)
+""", unsafe_allow_thin=True)
 
-st.title("📈 Pro Trading Terminal")
+st.markdown("<h3>📈 Pro Trading Terminal</h3>", unsafe_allow_html=True)
 
-# 1. Index Selector (Nifty & Bank Nifty only)
-col1, col2, col3 = st.columns([1, 4, 1])
+# 1. Index Selector
+col1, col2, col3 = st.columns([1, 8, 1])
 with col2:
     selected_index = st.selectbox(
         "Select Index", 
@@ -22,14 +23,14 @@ with col2:
         index=0
     )
 
-# Map selection to TradingView symbols
+# Correct TradingView Index Symbols format for widgets
 symbol_map = {
-    "NIFTY 50": "NSE:NIFTY",
-    "BANK NIFTY": "NSE:BANKNIFTY"
+    "NIFTY 50": "NSE_INDEX:Nifty_50",
+    "BANK NIFTY": "NSE_INDEX:Nifty_Bank"
 }
 current_symbol = symbol_map[selected_index]
 
-# 2. TradingView Live Chart Widget
+# 2. TradingView Live Chart Widget (Optimized for Mobile Height)
 tv_widget_html = f"""
 <!DOCTYPE html>
 <html>
@@ -37,7 +38,7 @@ tv_widget_html = f"""
 </head>
 <body style="margin:0;background-color:#131722;">
     <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container" style="height:600px;width:100%">
+    <div class="tradingview-widget-container" style="height:650px;width:100%">
       <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
       <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
       {{
@@ -64,8 +65,8 @@ tv_widget_html = f"""
 </html>
 """
 
-import streamlit.components.v1 as components
-components.html(tv_widget_html, height=610, scrolling=False)
+# Render full height component
+components.html(tv_widget_html, height=670, scrolling=False)
 
-st.markdown("---")
-st.info(f"💡 Active Chart: **{selected_index}** (5m / All Timeframes & Drawing tools enabled)")
+st.info(f"💡 Active Chart: **{selected_index}**")
+
