@@ -66,7 +66,9 @@ const chart = LightweightCharts.createChart(
     }
 );
 
-const candleSeries = chart.addCandlestickSeries();
+const candleSeries = chart.addSeries(
+    LightweightCharts.CandlestickSeries
+);
 
 candleSeries.setData([
     { time: "2026-07-21", open: 25000, high: 25100, low: 24950, close: 25080 },
