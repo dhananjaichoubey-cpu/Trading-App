@@ -6,6 +6,11 @@ from streamlit_lightweight_charts import renderLightweightCharts
 st.set_page_config(layout="wide")
 
 st.title("My Trading Chart")
+tf = st.radio(
+    "Timeframe",
+    ["1m", "5m", "15m", "30m", "1h", "1d"],
+    horizontal=True
+)
 data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
 data = data.reset_index()
 data.columns = data.columns.get_level_values(0)
