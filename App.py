@@ -39,12 +39,13 @@ chart = [{
     "chart": {
         "height": 600,
         "timeScale": {
-        "timeVisible": True,
-        "secondsVisible": False
+            "timeVisible": True,
+            "secondsVisible": False
+        }
     },
     "series": [{
         "type": "Candlestick",
-        "data": candles          
+        "data": candles
     }]
 }]
 
