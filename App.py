@@ -21,7 +21,7 @@ interval_map = {
 }
 
 interval = interval_map[tf]
-data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
+data = yf.download("^NSEI", period="5d", interval=interval, auto_adjust=False)
 data = data.reset_index()
 data.columns = data.columns.get_level_values(0)
 candles = []
