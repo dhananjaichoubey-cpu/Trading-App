@@ -52,7 +52,11 @@ chart = [{
 
 renderLightweightCharts(chart, "chart")
 html = """
-<h3>Official TradingView Chart</h3>
-"""
+<div id="tvchart" style="width:100%;height:600px;"></div>
 
-components.html(html, height=700)
+<script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
+
+<script>
+document.getElementById("tvchart").innerHTML = "<h3>JavaScript Loaded Successfully</h3>";
+</script>
+"""
