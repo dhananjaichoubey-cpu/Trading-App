@@ -1,4 +1,6 @@
 import streamlit as st
+import yfinance as yf
+import pandas as pd
 from streamlit_lightweight_charts import renderLightweightCharts
 
 st.set_page_config(layout="wide")
