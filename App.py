@@ -12,12 +12,12 @@ candles = []
 
 for _, row in data.iterrows():
     candles.append({
-        "time": i.strftime("%Y-%m-%d %H:%M:%S"),
-        "open": float(data.loc[i]["Open"]),
-        "high": float(data.loc[i]["High"]),
-        "low": float(data.loc[i]["Low"]),
-        "close": float(data.loc[i]["Close"]),
-    })
+    "time": row["Datetime"].strftime("%Y-%m-%d %H:%M:%S"),
+    "open": float(row["Open"]),
+    "high": float(row["High"]),
+    "low": float(row["Low"]),
+    "close": float(row["Close"]),
+})
 
 chart = [{
     "chart": {
