@@ -10,7 +10,7 @@ st.markdown("""
     .main { background-color: #0e1117; }
     h1 { color: #ffffff; text-align: center; font-size: 20px; }
     </style>
-""", unsafe_allow_thin=True)
+""", unsafe_allow_html=True)
 
 st.markdown("<h3>📈 Pro Trading Terminal</h3>", unsafe_allow_html=True)
 
@@ -69,4 +69,3 @@ tv_widget_html = f"""
 components.html(tv_widget_html, height=670, scrolling=False)
 
 st.info(f"💡 Active Chart: **{selected_index}**")
-
