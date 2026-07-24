@@ -37,7 +37,10 @@ for _, row in data.iterrows():
 
 chart = [{
     "chart": {
-        "height": 600
+        "height": 600,
+        "timeScale": {
+        "timeVisible": True,
+        "secondsVisible": False
     },
     "series": [{
         "type": "Candlestick",
