@@ -35,22 +35,7 @@ for _, row in data.iterrows():
     "low": float(row["Low"]),
     "close": float(row["Close"]),
 })
-
-chart = [{
-    "chart": {
-        "height": 600,
-        "timeScale": {
-            "timeVisible": True,
-            "secondsVisible": False
-        }
-    },
-    "series": [{
-        "type": "Candlestick",
-        "data": candles
-    }]
-}]
-
-#renderLightweightCharts(chart, "chart")
+    
 html = """
 
 <div id="tvchart" style="width:100%;height:600px;"></div>
