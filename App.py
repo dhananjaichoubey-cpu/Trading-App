@@ -2,6 +2,7 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 from streamlit_lightweight_charts import renderLightweightCharts
+import streamlit.components.v1 as components
 
 st.set_page_config(layout="wide")
 
@@ -50,3 +51,8 @@ chart = [{
 }]
 
 renderLightweightCharts(chart, "chart")
+html = """
+<h3>Official TradingView Chart</h3>
+"""
+
+components.html(html, height=700)
