@@ -1,5 +1,4 @@
 streamlit
-streamlit-components
 streamlit-lightweight-charts
 yfinance
 pandas
