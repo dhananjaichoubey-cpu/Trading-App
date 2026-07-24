@@ -6,7 +6,8 @@ from streamlit_lightweight_charts import renderLightweightCharts
 st.set_page_config(layout="wide")
 
 st.title("My Trading Chart")
-data = yf.download("^NSEI", period="5d", interval="5m")
+data = yf.download("^NSEI", period="5d", interval="5m", auto_adjust=False)
+data = data.reset_index()
 candles = []
 
 for i in data.index:
