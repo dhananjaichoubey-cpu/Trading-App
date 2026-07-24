@@ -50,8 +50,9 @@ chart = [{
     }]
 }]
 
-renderLightweightCharts(chart, "chart")
+#renderLightweightCharts(chart, "chart")
 html = """
+
 <div id="tvchart" style="width:100%;height:600px;"></div>
 
 <script src="https://unpkg.com/lightweight-charts/dist/lightweight-charts.standalone.production.js"></script>
@@ -60,3 +61,4 @@ html = """
 document.getElementById("tvchart").innerHTML = "<h3>JavaScript Loaded Successfully</h3>";
 </script>
 """
+components.html(html, height=700)
