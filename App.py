@@ -28,7 +28,7 @@ candles = []
 
 for _, row in data.iterrows():
     candles.append({
-    "time": int(row["Datetime"].timestamp()),
+    "time": int(row[data.columns[0]].timestamp()),
     "open": float(row["Open"]),
     "high": float(row["High"]),
     "low": float(row["Low"]),
